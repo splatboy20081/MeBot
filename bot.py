@@ -11,7 +11,7 @@ import platform
 import time as t
 
 BOT_PREFIX = ('s!')
-TOKEN = 'NzAwMzg1MDkyODAzMTAwNzEy.Xpi5Ww.hcyNKqMQOjv171z2dSyB1bucD8A'
+TOKEN = 'YOUR_BOT_TOKEN'
 OWNERS = [664611927049371660]
 BLACKLIST = []
 client = Bot(command_prefix=BOT_PREFIX)

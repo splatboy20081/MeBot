@@ -3,10 +3,6 @@ This repository is a template that everyone can use for the start of their disco
 
 The list of update are available [here](UPDATES.md).
 
-## Bots who used this template
-
-*DM Krypton#2188 to get yourself in this list*
-
 ## How to use it
 
 * Clone/Download the repository
@@ -32,11 +28,7 @@ Make sure to edit those things:
 
 ## Issues or Questions
 
-If you have any issues or questions of how to code a specific command, make sure to post them [here](https://github.com/kkrypt0nn/Python-Discord-Bot-Template/issues). I will take time to answer and help you.
-
-## Versioning
-
-We use [SemVer](http://semver.org) for versioning. For the versions available, see the [tags on this repository](https://github.com/kkrypt0nn/Python-Discord-Bot-Template/tags). 
+If you have any issues or questions of how to code a specific command, make sure to post them in the issues page.
 
 ## Author(s)
 

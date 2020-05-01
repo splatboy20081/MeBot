@@ -40,7 +40,7 @@ We use [SemVer](http://semver.org) for versioning. For the versions available, s
 
 ## Author(s)
 
-* **[Krypton](https://spacelab.wtf)** - The only and one developer
+* **[Splatboy20081](https://github.com/splatboy20081)** - The dev
 
 ## License
 

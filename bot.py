@@ -12,7 +12,7 @@ import time as t
 
 BOT_PREFIX = ('s!')
 TOKEN = 'YOUR_BOT_TOKEN'
-OWNERS = [664611927049371660]
+OWNERS = [664611927049371660] #DM splatboy20081#6989 to edit because I am using dev mode and I can check your userid
 BLACKLIST = []
 client = Bot(command_prefix=BOT_PREFIX)
 
@@ -42,16 +42,6 @@ async def info(context):
         e.add_field(name="Prefix:", value="s! ", inline=False)
         e.set_footer(text="Requested by {0}".format(context.message.author))
         await context.message.channel.send(embed=e)
-
-@client.command(name='prefix', pass_context=True)
-async def prefix(context):
-    if context.message.author.id in BLACKLIST:
-        embed = discord.Embed(title='You\'re blacklisted!', description='Ask the owner to remove from the list if it was unfair.', color=0x00FF00)
-        await context.message.channel.send(embed=embed)
-    else:
-        BOT_PREFIX = context
-        embed= discord.Embed(title='New Prefix', description='Prefix Changed To ' + context + '!', color=0x00FF00)
-        await context.message.channel.send(embed=embed)
 
 @client.command(name='serverinfo', pass_context=True)
 async def serverinfo(context):
@@ -108,7 +98,7 @@ async def server(context):
 		await context.message.channel.send(embed=embed)
 	else:
 		await context.message.channel.send('I sent you a private message!')
-		await context.message.channel.send('Join my discord server by clicking here: https://discord.gg/vDJQ3Bk')
+		await context.message.author.send('Join my discord server by clicking here: https://discord.gg/vDJQ3Bk')
 
 @client.command(name='poll', pass_context=True)
 async def poll(context, *args):
@@ -162,7 +152,7 @@ async def shutdown(context):
 @client.command(name='say', pass_context=True)
 async def echo(context, *, content):
 	if context.message.author.id in BLACKLIST:
-		embed = discord.Embed(title='You\'re blacklisted!', description='Ask the owner to remove from the list if it was unfair.', color=0x00FF00)
+		embed = discord.Embed(title='You\'re blacklisted!', description='Ask the owner of the bot to remove from the list if it was unfair.', color=0x00FF00)
 		await context.message.channel.send(embed=embed)
 	else:
 		if context.message.author.id in OWNERS:
@@ -213,23 +203,6 @@ async def kick(context, member: discord.Member, *args):
 		else:
 			embed = discord.Embed(title='Error!', description='You don\'t have the permission to use this command.',
 								  color=0x00FF00)
-			await context.message.channel.send(embed=embed)
-
-@client.command(name='nick', pass_context=True)
-async def nick(context, member: discord.Member, *, name : str):
-	if context.message.author.id in BLACKLIST:
-		embed = discord.Embed(title='You\'re blacklisted!', description='Ask the owner to remove from the list if it was unfair.', color=0x00FF00)
-		await context.message.channel.send(embed=embed)
-	else:
-		if context.message.author.guild_permissions.administrator:
-			if name.lower() == "!reset":
-				name = None
-			embed = discord.Embed(title='Changed Nickname!', description='**{0}** new nickname is **{1}**!'.format(member, name), color=0x00FF00)
-			await context.message.channel.send(embed=embed)
-			await context.message.delete()
-			await member.change_nickname(name)
-		else:
-			embed = discord.Embed(title='Error!', description='You don\'t have the permission to use this command.', color=0x00FF00)
 			await context.message.channel.send(embed=embed)
 
 @client.command(name='ban', pass_context=True)
@@ -439,15 +412,6 @@ async def embed_error(context, error):
 						  description='**Description:** I say what you say as embed message \n **Usage:** YOUR_PREFIX_HERE embed [message] \n **Example:** YOUR_PREFIX_HERE embed Hello!!',
 						  color=0x00FF00)
 	await context.message.channel.send(embed=embed)
-
-
-@kick.error
-async def kick_error(context, error):
-	embed = discord.Embed(title='**Command:** YOUR_PREFIX_HERE kick',
-						  description='**Description:** Kicks a member \n **Usage:** YOUR_PREFIX_HERE kick [user] [reason] \n **Example:** YOUR_PREFIX_HERE kick @RandomUser Rejoin when you\'ll be smarter, like me!',
-						  color=0x00FF00)
-	await context.message.channel.send(embed=embed)
-
 
 @unban.error
 async def unban_error(context, error):

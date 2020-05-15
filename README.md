@@ -1,4 +1,4 @@
-# Python-Discord-Bot-Template
+# Yes striker, THIS IS ME.
 This repository is a bot.
 
 The list of update are available [here](UPDATES.md).
